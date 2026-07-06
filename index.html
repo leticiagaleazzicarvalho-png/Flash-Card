@@ -3,56 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Flashcards de Estudo</title>
+    <title>Revisão Completa: 8 Flashcards</title>
     <style>
-        /* --- ESTILOS GERAIS E LAYOUT --- */
+        /* --- ESTILOS GERAIS --- */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f6f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 100vh;
         }
 
         h1 {
-            color: #333;
+            color: #1e293b;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitulo {
+            color: #64748b;
             margin-bottom: 40px;
+            text-align: center;
         }
 
-        /* Container que envolve todos os cards (Layout Flexível) */
-        .cards-container {
+        /* --- GRADE DE CARDS (FLEXBOX) --- */
+        .cards-grid {
             display: flex;
-            gap: 30px; /* Espaço entre os cards */
-            flex-wrap: wrap; /* Quebra de linha se a tela for pequena */
+            flex-wrap: wrap;
+            gap: 25px;
             justify-content: center;
+            max-width: 1200px;
         }
 
-        /* --- ESTRUTURA DO FLASHCARD (3D) --- */
+        /* --- ESTRUTURA 3D DO FLASHCARD --- */
         .card-box {
-            perspective: 1000px; /* Efeito de profundidade 3D */
+            perspective: 1000px;
         }
 
         .flashcard {
-            width: 280px;
-            height: 220px;
+            width: 260px;
+            height: 200px;
             position: relative;
             transform-style: preserve-3d;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
         }
 
-        /* Efeito de virar ao passar o mouse */
+        /* Giro ao passar o mouse */
         .card-box:hover .flashcard {
             transform: rotateY(180deg);
         }
 
-        /* Configuração comum das duas faces */
+        /* Estilo comum das faces */
         .face {
             position: absolute;
             width: 100%;
             height: 100%;
-            backface-visibility: hidden; /* Esconde o
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .face h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .face p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .dica {
+            font-size: 0.75rem !important;
+            opacity: 0.7;
+            margin-top: 12px !important;
+        }
+
+        /* --- TEMAS E CORES (1 POR AULA) --- */
+
+        /* Aula 1 */
+        .aula1 .frente { background-color: #e11d48; color: white; }
+        .aula1 .verso { background-color: #4c1d95; color: white; transform: rotateY(180deg); }
+
+        /* Aula 2 */
+        .aula2 .frente { background-color: #ea580c; color: white; }
+        .aula2 .verso { background-color: #1e293b; color: white; transform: rotateY(180deg); }
+
+        /* Aula 3 */
+        .aula3 .frente { background-color: #db2777; color: white; }
+        .aula3 .verso { background-color: #475569; color: white; transform: rotateY(180deg); }
+
+        /* Aula 4 */
+        .aula4 .frente { background-color: #2563eb; color: white; }
+        .aula4 .verso { background-color: #0f172a; color: white; transform: rotateY(180deg); }
+
+        /* Aula 5 */
+        .aula5 .frente { background-color: #059669; color: white; }
+        .aula5 .verso { background-color: #111827; color: white; transform: rotateY(180deg); }
+
+        /* Aula 6 */
+        .aula6 .frente { background-color: #7c3aed; color: white; }
+        .aula6 .verso { background-color: #311042; color: white; transform: rotateY(180deg); }
+
+        /* Aula 7 */
+        .aula7 .frente { background-color: #d97706; color: white; }
+        .aula7 .verso { background-color: #292524; color: white; transform: rotateY(180deg); }
+
+        /* Aula 8 */
+        .aula8 .frente { background-color: #0d9488; color: white; }
+        .aula8 .verso { background-color: #064e3b; color: white; transform: rotateY(180deg); }
+
+    </style>
+</head>
+<body>
+
+    <h1>Revisão Completa da Trilha</h1>
+    <div class="subtitulo">Passe o mouse sobre os cards para ver as respostas</div>
+
+    <div class="cards-grid">
+
+        <div class="card-box">
+            <div class="flashcard aula1">
+                <div class="face frente">
+                    <h3>Aula 1</h3>
+                    <p>Qual é o principal perigo da desinformação na internet?</p>
+                    <p class="dica">Ver resposta</p>
+                </div>
+                <div class="face verso">
+                    <h3>Desinformação</h3>
+                    <p>Ela espalha boatos falsos, prejudica a sociedade e engana as pessoas. Devemos sempre checar as fontes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-box">
+            <div class="flashcard aula2">
+                <div class="face frente">
+                    <h3>Aula 2</h3>
+                    <p>O HTML é considerado uma linguagem de programação?</p>
+                    <p class="dica">Ver resposta</p>
+                </div>
+                <div class="face verso">
+                    <h3>HTML</h3>
+                    <p>Não! O HTML é uma linguagem de marcação usada para estruturar e dar corpo aos elementos da página.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-box">
+            <div class="flashcard aula3">
+                <div class="face frente">
+                    <h3>Aula 3</h3>
+                    <p>Por que a hierarquia de tags (H1 a H6) é importante?</p>
+                    <p class="dica">Ver resposta</p>
+                </div>
+                <div class="face verso">
+                    <h3>Hierarquia</h3>
+                    <p>Ela organiza a importância dos títulos para o leitor e ajuda os motores de busca (como o Google) a entender o site.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-box">
+            <div class="flashcard aula4">
+                <div class="face frente">
+                    <h3>Aula 4</h3>
+                    <p>Qual é o papel principal do CSS no desenvolvimento?</p>
+                    <p class="dica">Ver resposta</p>
+                </div>
+                <div class="face verso">
+                    <h3>Estilização</h3>
+                    <p>O CSS cuida da estética: define cores, fontes, tamanhos e toda a parte visual do esqueleto criado no HTML.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-box">
+            <div class="flashcard aula5">
+                <div class="face frente">
+                    <h3>Aula 5</h3>
+                    <p>Para que serve o modelo Flexbox no CSS?</p>
+                    <p class="dica">Ver resposta</p>
+                </div>
+                <div class="face verso">
+                    <h3>Layout Flexível</h3>
+                    <p>Serve para alinhar e distribuir elementos em um container de forma simples, adaptável e responsiva.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-box">
+            <div class="flashcard aula6">
+                <div class="face frente">
+                    <h3>Aula 6</h3>
+                    <p>Como podemos representar cores no CSS além do nome em inglês?</p>
+                    <p class="dica">Ver resposta</p>
+                </div>
+                <div class="face verso">
+                    <h3>Cores e Estilos</h3>
+                    <p>Podemos usar códigos Hexadecimais (ex: #ffffff) ou o sistema RGB (ex: rgb(255, 255, 255)).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-box">
+            <div class="flashcard aula7">
+                <div class="face frente">
+                    <h3>Aula 7</h3>
+                    <p>O que faz a propriedade position: absolute?</p>
+                    <p class="dica">Ver resposta</p>
+                </div>
+                <div class="face verso">
+                    <h3>Posicionamento</h3>
+                    <p>Remove o elemento do fluxo normal e o posiciona de forma exata em relação ao seu elemento pai mais próximo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-box">
+            <div class="flashcard aula8">
+                <div class="face frente">
+                    <h3>Aula 8</h3>
+                    <p>Quais propriedades dão o efeito 3D ao virar o flashcard?</p>
+                    <p class="dica">Ver resposta</p>
+                </div>
+                <div class="face verso">
+                    <h3>Virando o Card</h3>
+                    <p>As propriedades perspective, transform (com rotateY) e backface-visibility: hidden.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
