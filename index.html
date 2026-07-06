@@ -3,26 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcard Interativo</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <title>Meus Flashcards de Estudo</title>
+    <style>
+        /* --- ESTILOS GERAIS E LAYOUT --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
 
-    <div class="container">
-        <div class="flashcard">
-            
-            <div class="face frente">
-                <h2>O que é HTML?</h2>
-                <p>Passe o mouse para ver a resposta</p>
-            </div>
-            
-            <div class="face verso">
-                <h2>Resposta:</h2>
-                <p>É uma linguagem de marcação utilizada para construir a estrutura e o esqueleto de uma página web.</p>
-            </div>
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+        }
 
-        </div>
-    </div>
+        /* Container que envolve todos os cards (Layout Flexível) */
+        .cards-container {
+            display: flex;
+            gap: 30px; /* Espaço entre os cards */
+            flex-wrap: wrap; /* Quebra de linha se a tela for pequena */
+            justify-content: center;
+        }
 
-</body>
-</html>
+        /* --- ESTRUTURA DO FLASHCARD (3D) --- */
+        .card-box {
+            perspective: 1000px; /* Efeito de profundidade 3D */
+        }
+
+        .flashcard {
+            width: 280px;
+            height: 220px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        /* Efeito de virar ao passar o mouse */
+        .card-box:hover .flashcard {
+            transform: rotateY(180deg);
+        }
+
+        /* Configuração comum das duas faces */
+        .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Esconde o
